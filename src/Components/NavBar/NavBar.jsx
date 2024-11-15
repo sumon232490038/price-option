@@ -13,11 +13,15 @@ const NavBar = () => {
     { id: 5, name: "Blog", path: "/blog" },
   ];
   return (
-    <nav>
-      <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
-        {open === true ? <MdOutlineMenu /> : <RiCloseLargeFill />}
+    <nav className="">
+      <div className="text-3xl md:hidden p-4" onClick={() => setOpen(!open)}>
+        {open === true ? <RiCloseLargeFill /> : <MdOutlineMenu />}
       </div>
-      <ul className="md:flex">
+      <ul
+        className={`md:flex p-5 ab; absolute bg-red-100 ${
+          open ? "top-40" : "-top-40"
+        } duration-1000 md:static`}
+      >
         {routes.map((route) => (
           <Links key={route.id} route={route}></Links>
         ))}
